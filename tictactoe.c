@@ -120,6 +120,7 @@ int startTheGame()
     {
         fscanf(userFile, "%d", &easyIndex);
         for(i = 0; i < 3; i++)
+        {
             for(j = 0; j < 3; j++)
             {
                 ch = getc(userFile);
@@ -129,12 +130,14 @@ int startTheGame()
                 if(ch != '\n')
                     easy[i][j] = ch;
             }
+        }
     }
 
     if(isSavedHard)
     {
         fscanf(userFile, "%d", &hardIndex);
         for(i = 0; i < 3; i++)
+        {
             for(j = 0; j < 3; j++)
             {
                 ch = getc(userFile);
@@ -144,6 +147,7 @@ int startTheGame()
                 if(ch != '\n')
                     hard[i][j] = ch;
             }
+        }
     }
 
     fclose(userFile);
@@ -514,12 +518,18 @@ int getThePosition()
     // Check for the lose position to prevent it
     if(!gameplay)   // In ** easy ** mode AI may do sily mistake
     {
-        if((rand() % 2) == 0)
+        if((rand() % 10) != 0)
         {
             position = isTwiceOccured('X');
             if(position)
                 return position;
         }
+    }
+    else
+    {
+        position = isTwiceOccured('X');
+        if(position)
+            return position;
     }
 
 
@@ -665,16 +675,16 @@ int crossPlace()
             return 1;
 
     if(checkThePlace(1))
-            return 1;
+        return 1;
 
     if(checkThePlace(3))
-            return 3;
+        return 3;
 
     if(checkThePlace(7))
-            return 7;
+        return 7;
 
     if(checkThePlace(9))
-            return 9;
+        return 9;
 }
 
 /**

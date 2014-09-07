@@ -1,7 +1,8 @@
 Tic Tac Toe
 ===========
 
-A CLI Tic Tac Toe Game in C.
+A CLI Tic Tac Toe Game in C. (For Windows as it does some system calls specific
+to Windows)
 
 You will play with an AI in easy, or hard mode. This game also has save feature,
 so that you can save in middle of the game. You will be asked to continue the
